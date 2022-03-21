@@ -1,5 +1,12 @@
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
 
+#  ____  _  __
+# |  _ \| |/ /  Modified by Ravindu Kalhara
+# | |_) | ' /   Github - https://github.com/Ravindu-Kalhara
+# |  _ <| . \
+# |_| \_\_|\_\
+#
+
 # Import additional configuration files
 #
 # Imports are loaded in order, skipping all missing files, with the importing
