@@ -1,2 +1,4 @@
 # dotfiles
-My configuration files
+My configuration files for, 
+1. alacritty
+2.  
