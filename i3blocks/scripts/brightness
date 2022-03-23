@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+#  ____  _  __
+# |  _ \| |/ /  Created by Ravindu Kalhara
+# | |_) | ' /   Github - https://github.com/Ravindu-Kalhara
+# |  _ <| . \
+# |_| \_\_|\_\
+#
+# Simple script to change and display screen brightness, on i3blocks status line using 'brightnessctl' tool.
+
+delta=5
+case "$BLOCK_BUTTON" in
+	4) brightnessctl set +${delta}% >> /dev/null ;;
+	5) brightnessctl set ${delta}%- >> /dev/null ;;
+esac
+
+current_val=$( brightnessctl -m | awk -F "," '{print $4}' )
+echo " ${current_val}"
+

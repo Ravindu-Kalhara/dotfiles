@@ -1,0 +1,67 @@
+# i3blocks configuration file
+
+#  ____  _  __
+# |  _ \| |/ /  Modified by Ravindu Kalhara
+# | |_) | ' /   Github - https://github.com/Ravindu-Kalhara
+# |  _ <| . \
+# |_| \_\_|\_\
+#
+
+# Global properties
+separator=true
+separator_block_width=15
+
+# [weather]
+# command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
+# interval=3600
+# color=#A4C2F4
+
+# [documentation]
+# full_text=Documentation
+# website=https://vivien.github.io/i3blocks
+# command=xdg-open "$website"
+# color=#f12711
+
+# [greetings]
+# color=#f5af19
+# command=echo "Hello, $USER!"
+# interval=once
+
+[volume]
+command=~/.config/i3blocks/scripts/volume
+interval=1
+color=#50FA7B
+
+# [cpu_temp]
+# command=~/.config/i3blocks/scripts/cpu_temp
+# interval=2
+# color=#FF5555
+
+[cpu_usage]
+command=~/.config/i3blocks/scripts/cpu_usage
+interval=2
+min_width=75
+color=#FF5555
+
+[memory_usage]
+command=~/.config/i3blocks/scripts/memory_usage
+interval=2
+min_width=65
+color=#ff7f00
+
+[brightness]
+command=~/.config/i3blocks/scripts/brightness
+interval=1
+color=#FF92D0
+
+[battery]
+command=~/.config/i3blocks/scripts/battery
+interval=1
+color=#F1FA8C
+
+[time]
+command=date '+%Y-%m-%d %H:%M'
+interval=60
+color=#8BE9FD
+
+

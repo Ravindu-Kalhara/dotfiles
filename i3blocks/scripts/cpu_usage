@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+#  ____  _  __
+# |  _ \| |/ /  Created by Ravindu Kalhara
+# | |_) | ' /   Github - https://github.com/Ravindu-Kalhara
+# |  _ <| . \
+# |_| \_\_|\_\
+#
+# Simple script to display cpu usage on i3blocks status line using 'mpstat' tool.
+
+[[ $BLOCK_BUTTON = "1" ]] && alacritty -e htop
+
+idle=$(mpstat --dec=1 1 1 | awk 'NR==5{print $12}')
+use=$(echo "100-${idle}" | bc)
+
+echo "  ${use}%"
+

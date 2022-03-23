@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+#  ____  _  __
+# |  _ \| |/ /  Created by Ravindu Kalhara
+# | |_) | ' /   Github - https://github.com/Ravindu-Kalhara
+# |  _ <| . \
+# |_| \_\_|\_\
+#
+# Simple script to display and change volume, on i3blocks status line using 'pactl' and 'alsamixer' tools.
+
+function set_label {
+	ismuted=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
+	volume=$(pactl get-sink-volume @DEFAULT_SINK@ | awk -F '/' '{print substr($2, 2)}')
+	
+	if [[ ${ismuted} == "yes" ]]; then
+		echo " MUTED"
+	else
+		echo " ${volume}"
+	fi
+}
+
+set_label
+
+case "$BLOCK_BUTTON" in
+	1) pactl set-sink-mute @DEFAULT_SINK@ toggle && set_label ;;
+	3) alacritty -e alsamixer ;;
+	4) pactl set-sink-volume @DEFAULT_SINK@ +5% ;;
+	5) pactl set-sink-volume @DEFAULT_SINK@ -5% ;;
+esac
+

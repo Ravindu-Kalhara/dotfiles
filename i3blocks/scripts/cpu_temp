@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+#  ____  _  __
+# |  _ \| |/ /  Created by Ravindu Kalhara
+# | |_) | ' /   Github - https://github.com/Ravindu-Kalhara
+# |  _ <| . \
+# |_| \_\_|\_\
+#
+# Simple script to display cpu temperature, on i3blocks status line using 'acpi' tool.
+
+temp=$(acpi -t | awk '{print $4}')
+echo " ${temp}°C"
+

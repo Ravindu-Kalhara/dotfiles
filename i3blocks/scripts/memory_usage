@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+#  ____  _  __
+# |  _ \| |/ /  Created by Ravindu Kalhara
+# | |_) | ' /   Github - https://github.com/Ravindu-Kalhara
+# |  _ <| . \
+# |_| \_\_|\_\
+#
+# Simple script to display memory usage, on i3blocks status line using 'free' tool.
+
+[[ $BLOCK_BUTTON == "1" ]] && alacritty -e htop
+
+mem=$(free -h | awk 'NR==2{print $3}')
+# swap=$(free -h | awk 'NR==3{print $3}')
+
+echo " ${mem}"
+

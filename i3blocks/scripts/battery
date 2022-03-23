@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+#  ____  _  __
+# |  _ \| |/ /	Created by Ravindu Kalhara
+# | |_) | ' /	Github - https://github.com/Ravindu-Kalhara
+# |  _ <| . \
+# |_| \_\_|\_\
+#
+# Simple script to display battery percentage of a laptop, on i3blocks status line using 'acpi' tool.
+
+percent=$(acpi | awk -F ', ' '{print $2+0}')
+Status=$(acpi | awk -F ', ' '{print substr($1, 12)}')
+
+if [[ ${Status} == "Charging" ]]; then
+	echo "  ${percent}%"
+elif [[ ${Status} == "Discharging" ]]; then
+	if [[ ${percent} -gt 90 ]]; then
+		echo "  ${percent}%"
+	elif [[ ${percent} -gt 50 ]]; then
+		echo "  ${percent}%"
+	elif [[ ${percent} -gt 25 ]]; then
+		echo "  ${percent}%"
+	elif [[ ${percent} -gt 10 ]]; then
+		echo "  ${percent}%"
+	else
+		echo "  ${percent}%"
+	fi
+elif [[ ${Status} == "Full" ]]; then
+	echo "  FULL"
+else
+	echo "UNK"
+fi
+
